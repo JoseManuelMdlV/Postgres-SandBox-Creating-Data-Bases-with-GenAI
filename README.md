@@ -20,23 +20,31 @@ Empezamos el proyecto haciendo un boceto de cómo queremos que sea la tabla que 
 
 En cuanto a las condiciones, se pretende que se rellenen datos para todos los días del año, excluyendo algunos días festivos que vamos a indicarle, así como los fines de semana, los cuales los toma como días no laborables por defecto. 
 
-Figura 1 aquí
+![image](https://github.com/user-attachments/assets/d7492aef-e7c3-49be-8192-2a6c52dd23fd)
+
+<b>Figura 1:</b> Prompt inicial con las conodiciones para crear la tabla y su resultado.
 
 También se han incluido algunas condiciones extra para intentar hacer que los datos se asemejen un poco más a la realidad, siendo que en enero los precios tendrán un descuento aplicado sobre estos (rebajas de enero) y que hay ciertos artículos que no se venden en ciertos meses o que se compran en mayor medida en otros.
 
 La figura 1 muestra tanto la entrada dada inicialmente como la tabla resultante de dichas instrucciones, mientras que en la figura 2 podemos ver el código que se ha empleado tanto para crear la tabla como para introducir datos en esta.
 
-Figura 2 aquí
+![image](https://github.com/user-attachments/assets/18282674-5dcf-4749-b60b-51a0127c8773)
+
+<b>Figura 2:</b> Código empleado para la creación de la tabla (izq) y el llenado de esta (dcha).
 
 En la GUI se pueden emplear sentencias SQL para ver los datos contenidos dentro de la tabla, pero postgres suele limitarlo a 5 filas como máximo. Si pretendemos ver todas las filas, postgres creará un archivo CSV que podremos descargarlo y visualizarlo en nuestra aplicación favorita. Los datos, sin embargo, puede que no se pasen del todo bien en los formatos deseados a la hora de cargarlos en programas como Power BI, algo que puede verse en la figura 3, siendo necesario un pequeño proceso de limpieza y transformación para prepararlos para su posterior visualización y análisis. 
 
-Figura 3 aquí
+![image](https://github.com/user-attachments/assets/454b26a9-52b0-4ae1-9fbb-0875412bb9d7)
+
+<b>Figura 3:</b> Datos cargados en Power BI previos a su limpieza y transformación.
 
 Como el objetivo de este proyecto es familiarizarse con la herramienta y ver sus capacidades, todo el proceso de tratamiento de los datos se sale del enfoque del proyecto, dejando esto como una tarea a realizar en un futuro trabajo donde se realizará un pequeño análisis de los datos obtenidos.
 
 Pese a la gran capacidad de trabajo de la IA, si observamos algunos de los datos que ha introducido en la tabla (figura 2), vemos que hay saltos en las fechas, pasando de tener entradas en marzo, a tenerlas en junio. También vemos que no todos los días tienen entradas, solo un pequeño puñado. Esto ya nos viene avisando que las instrucciones dadas en la figura 1 no han sido suficientes para crear una tabla que nos satisfaga (de cara a usar la tabla como un set de datos de entrenamiento para los analistas), por lo que será necesario ir afinando la tabla con instrucciones extra, como puede verse en la figura 4.
 
- Figura 4 aquí.
+![image](https://github.com/user-attachments/assets/0865f63c-d088-4335-bfa4-f7de9307582e)
+
+<b>Figura 4:</b> Prompt con el que se van ajustando los datos a lo que se pretendía obtener originalmente.
 
 Una vez ya hemos comprobado que los cambios han surtido efecto y que la tabla se ajusta mucho más a lo que deseábamos obtener en un inicio, basta con realizar una query donde le pidamos todos los datos de la tabla para que postgres haga una copia de la tabla en formato csv y nos permita descargarlo, dando por finalizado el proyecto.
 
